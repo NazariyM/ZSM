@@ -5,14 +5,14 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Главная</title>
+    <title>Страница каталога</title>
     <link href="static/css/index.css" rel="stylesheet">
     <link rel="icon" href="static/favicon.ico">
   </head>
   <body>
     <div class="out">
       <!--begin header-->
-      <header class="header">
+      <header class="header header_white">
         <div class="header__container container">
           <div class="header__top">
             <a class="header__logo logo" href="#!">
@@ -69,112 +69,165 @@
           </nav>
         </div>
       </header>
-      <!--begin hero-->
-      <section class="hero">
-        <div class="container">
-          <div class="hero__slider js-hero-slider">
-            <div class="hero__slider-item">
-              <div class="hero__slider-inner">
-                <div class="hero__slider-img">
-                  <img src="static/img/content/hero_img.png" alt="image" title="" />
-                </div>
-                <div class="hero__slider-text">
-                  <p>Производство санитарных блок-контейнеров</p>
-                </div>
+      <div class="layout">
+        <div class="layout__container container">
+          <aside class="layout__side">
+            <ul class="side-nav">
+              <li class="is-active">
+                <a href="#!">
+                  <span class="side-nav__icons">
+                    <div class="icon-list"></div>
+                  </span>Все</a>
+              </li>
+              <li>
+                <a href="#!">
+                  <span class="side-nav__icons">
+                    <div class="icon-check"></div>
+                  </span>Стандартные</a>
+              </li>
+              <li>
+                <a href="#!">
+                  <span class="side-nav__icons">
+                    <div class="icon-electric"></div>
+                  </span>Автономные</a>
+              </li>
+              <li>
+                <a href="#!">
+                  <span class="side-nav__icons">
+                    <div class="icon-shield"></div>
+                  </span>Антивандальные</a>
+              </li>
+              <li>
+                <a href="#!">
+                  <span class="side-nav__icons">
+                    <div class="icon-invalid"></div>
+                  </span>Для инвалидов (мгн)</a>
+              </li>
+            </ul>
+          </aside>
+          <div class="layout__content">
+            <section class="product">
+              <div class="product__top">
+                <h3 class="product__title">Туалеты</h3>
               </div>
-            </div>
-            <div class="hero__slider-item">
-              <div class="hero__slider-inner">
-                <div class="hero__slider-img">
-                  <img src="static/img/content/hero_img.png" alt="image" title="" />
-                </div>
-                <div class="hero__slider-text">
-                  <p>Производство санитарных блок-контейнеров</p>
-                </div>
+              <div class="product__blocks">
+                <a class="module product__module" href="#!">
+                  <div class="module__top">
+                    <div class="module__title">Туалетный блок «Мужской», 12 м2</div>
+                    <div class="module__icon">
+                      <div class="icon-check"></div>
+                    </div>
+                  </div>
+                  <div class="module__img">
+                    <img src="static/img/content/module_img.png" alt="image" title="" />
+                    <img class="module__img-hidden" src="static/img/content/module_img-hidden.png" alt="image" title="" />
+                  </div>
+                  <div class="module__price">
+                    <span>369 000</span> руб</div>
+                </a>
+                <a class="module product__module" href="#!">
+                  <div class="module__top">
+                    <div class="module__title">Туалетный блок «Мужской», 12 м2</div>
+                    <div class="module__icon">
+                      <div class="icon-electric"></div>
+                    </div>
+                  </div>
+                  <div class="module__img">
+                    <img src="static/img/content/module_img.png" alt="image" title="" />
+                    <img class="module__img-hidden" src="static/img/content/module_img-hidden.png" alt="image" title="" />
+                  </div>
+                  <div class="module__price">
+                    <span>267 000</span> руб</div>
+                </a>
+                <a class="module product__module" href="#!">
+                  <div class="module__top">
+                    <div class="module__title">Туалетный блок «Мужской», 12 м2</div>
+                    <div class="module__icon">
+                      <div class="icon-electric"></div>
+                    </div>
+                  </div>
+                  <div class="module__img">
+                    <img src="static/img/content/module_img.png" alt="image" title="" />
+                    <img class="module__img-hidden" src="static/img/content/module_img-hidden.png" alt="image" title="" />
+                  </div>
+                  <div class="module__price">
+                    <span>846 000</span> руб</div>
+                </a>
+                <a class="module product__module" href="#!">
+                  <div class="module__top">
+                    <div class="module__title">Туалетный блок «Мужской», 12 м2</div>
+                    <div class="module__icon">
+                      <div class="icon-shield"></div>
+                    </div>
+                  </div>
+                  <div class="module__img">
+                    <img src="static/img/content/module_img.png" alt="image" title="" />
+                    <img class="module__img-hidden" src="static/img/content/module_img-hidden.png" alt="image" title="" />
+                  </div>
+                  <div class="module__price">
+                    <span>157 000</span> руб</div>
+                </a>
+                <a class="module product__module" href="#!">
+                  <div class="module__top">
+                    <div class="module__title">Туалетный блок «Мужской», 12 м2</div>
+                    <div class="module__icon">
+                      <div class="icon-electric"></div>
+                    </div>
+                  </div>
+                  <div class="module__img">
+                    <img src="static/img/content/module_img.png" alt="image" title="" />
+                    <img class="module__img-hidden" src="static/img/content/module_img-hidden.png" alt="image" title="" />
+                  </div>
+                  <div class="module__price">
+                    <span>846 000</span> руб</div>
+                </a>
+                <a class="module product__module" href="#!">
+                  <div class="module__top">
+                    <div class="module__title">Туалетный блок «Мужской», 12 м2</div>
+                    <div class="module__icon">
+                      <div class="icon-shield"></div>
+                    </div>
+                  </div>
+                  <div class="module__img">
+                    <img src="static/img/content/module_img.png" alt="image" title="" />
+                    <img class="module__img-hidden" src="static/img/content/module_img-hidden.png" alt="image" title="" />
+                  </div>
+                  <div class="module__price">
+                    <span>157 000</span> руб</div>
+                </a>
+                <a class="module product__module" href="#!">
+                  <div class="module__top">
+                    <div class="module__title">Туалетный блок «Мужской», 12 м2</div>
+                    <div class="module__icon">
+                      <div class="icon-electric"></div>
+                    </div>
+                  </div>
+                  <div class="module__img">
+                    <img src="static/img/content/module_img.png" alt="image" title="" />
+                    <img class="module__img-hidden" src="static/img/content/module_img-hidden.png" alt="image" title="" />
+                  </div>
+                  <div class="module__price">
+                    <span>846 000</span> руб</div>
+                </a>
+                <a class="module product__module" href="#!">
+                  <div class="module__top">
+                    <div class="module__title">Туалетный блок «Мужской», 12 м2</div>
+                    <div class="module__icon">
+                      <div class="icon-shield"></div>
+                    </div>
+                  </div>
+                  <div class="module__img">
+                    <img src="static/img/content/module_img.png" alt="image" title="" />
+                    <img class="module__img-hidden" src="static/img/content/module_img-hidden.png" alt="image" title="" />
+                  </div>
+                  <div class="module__price">
+                    <span>157 000</span> руб</div>
+                </a>
               </div>
-            </div>
-            <div class="hero__slider-item">
-              <div class="hero__slider-inner">
-                <div class="hero__slider-img">
-                  <img src="static/img/content/hero_img.png" alt="image" title="" />
-                </div>
-                <div class="hero__slider-text">
-                  <p>Производство санитарных блок-контейнеров</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="menu">
-            <div class="menu__inner">
-              <a class="menu__item" href="#!">
-                <div class="menu__img">
-                  <img src="static/img/content/menu-1.jpg" alt="image" title="" />
-                </div>
-                <h5 class="menu__title">Модульные туалеты</h5>
-              </a>
-              <a class="menu__item" href="#!">
-                <div class="menu__img">
-                  <img src="static/img/content/menu-2.jpg" alt="image" title="" />
-                </div>
-                <h5 class="menu__title">Душевые</h5>
-              </a>
-              <a class="menu__item" href="#!">
-                <div class="menu__img">
-                  <img src="static/img/content/menu-3.jpg" alt="image" title="" />
-                </div>
-                <h5 class="menu__title">Комбинированые модули</h5>
-              </a>
-              <a class="menu__item" href="#!">
-                <div class="menu__img">
-                  <img src="static/img/content/menu-4.jpg" alt="image" title="" />
-                </div>
-                <h5 class="menu__title">Cанпропускники</h5>
-              </a>
-            </div>
+            </section>
           </div>
         </div>
-      </section>
-      <!--begin entry-articles-->
-      <section class="entry-articles">
-        <div class="container">
-          <article class="entry">
-            <a class="entry__img" href="#!">
-              <img src="static/img/content/notebook.jpg" alt="image" title="" />
-              <h5 class="entry__img-title">Заголовок</h5>
-            </a>
-            <div class="entry__text">
-              <p>«Википе́дия» (англ. Wikipedia, произносится [ˌwɪkɨˈpiːdiə] или [ˌwɪkiˈpiːdiə]) — общедоступная многоязычная универсальная интернет-энциклопедия со свободным контентом[комм. 2], реализованная на принципах вики. Расположена по адресу www.wikipedia.org.</p>
-              <p>Владелец сайта — американская некоммерческая организация «Фонд Викимедиа», имеющая 39 региональных представительств. Название энциклопедии образовано от английских слов wiki («вики»; в свою очередь заимствовано из гавайского языка, в котором
-                оно имеет значение «быстро») и encyclopedia («энциклопедия»).</p>
-              <a class="entry__btn btn" href="#!">Подробнее</a>
-            </div>
-          </article>
-          <article class="entry">
-            <a class="entry__img" href="#!">
-              <img src="static/img/content/notebook.jpg" alt="image" title="" />
-              <h5 class="entry__img-title">Заголовок</h5>
-            </a>
-            <div class="entry__text">
-              <p>«Википе́дия» (англ. Wikipedia, произносится [ˌwɪkɨˈpiːdiə] или [ˌwɪkiˈpiːdiə]) — общедоступная многоязычная универсальная интернет-энциклопедия со свободным контентом[комм. 2], реализованная на принципах вики. Расположена по адресу www.wikipedia.org.</p>
-              <p>Владелец сайта — американская некоммерческая организация «Фонд Викимедиа», имеющая 39 региональных представительств. Название энциклопедии образовано от английских слов wiki («вики»; в свою очередь заимствовано из гавайского языка, в котором
-                оно имеет значение «быстро») и encyclopedia («энциклопедия»).</p>
-              <a class="entry__btn btn" href="#!">Подробнее</a>
-            </div>
-          </article>
-          <article class="entry">
-            <a class="entry__img" href="#!">
-              <img src="static/img/content/notebook.jpg" alt="image" title="" />
-              <h5 class="entry__img-title">Заголовок</h5>
-            </a>
-            <div class="entry__text">
-              <p>«Википе́дия» (англ. Wikipedia, произносится [ˌwɪkɨˈpiːdiə] или [ˌwɪkiˈpiːdiə]) — общедоступная многоязычная универсальная интернет-энциклопедия со свободным контентом[комм. 2], реализованная на принципах вики. Расположена по адресу www.wikipedia.org.</p>
-              <p>Владелец сайта — американская некоммерческая организация «Фонд Викимедиа», имеющая 39 региональных представительств. Название энциклопедии образовано от английских слов wiki («вики»; в свою очередь заимствовано из гавайского языка, в котором
-                оно имеет значение «быстро») и encyclopedia («энциклопедия»).</p>
-              <a class="entry__btn btn" href="#!">Подробнее</a>
-            </div>
-          </article>
-        </div>
-      </section>
+      </div>
     </div>
     <!--begin footer-->
     <footer class="footer">

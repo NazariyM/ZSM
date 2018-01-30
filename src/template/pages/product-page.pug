@@ -1,0 +1,120 @@
+extends ../extend/default
+
+block variables
+	-title = 'Карточка товара';
+	-headerClass = '_white';
+
+block main
+
+	+b.layout
+		+e.container.container
+			+e.ASIDE.side
+				+b.UL.side-nav
+					+b.LI.is-active
+						a(href='#!')
+							+b.SPAN.side-nav__icons
+								.icon-list
+							| Все
+
+					+e.LI
+						a(href='#!')
+							+e.SPAN.icons
+								.icon-check
+							| Стандартные
+					+e.LI
+						a(href='#!')
+							+e.SPAN.icons
+								.icon-electric
+							| Автономные
+					+e.LI
+						a(href='#!')
+							+e.SPAN.icons
+								.icon-shield
+							| Антивандальные
+					+e.LI
+						a(href='#!')
+							+e.SPAN.icons
+								.icon-invalid
+							| Для инвалидов (мгн)
+
+			+e.content
+				+b.SECTION.product
+					+e.top
+						+e.H3.title Туалетный блок мужской, и еще пару слов, 12 м2
+						+e.icon
+							.icon-check
+
+					+e.inner
+						+e.photos
+							+e.photos-img
+								+e.IMG(src='static/img/content/prod-1.jpg' alt='image')
+							+e.photos-img
+								+e.IMG(src='static/img/content/prod-2.jpg' alt='image')
+							+e.photos-img
+								+e.IMG(src='static/img/content/prod-3.jpg' alt='image')
+
+						+e.data
+							+e.P.data-text Размер:
+								span 4,00х3,00х2,59
+							+e.P.data-text Артикул:
+								span 087566
+
+							+e.actions
+								+e.price от
+									span 369 000
+									= ' '
+									| руб
+								+e.BUTTON.btn.btn._rect(type='button') Заказать
+								+e.P Цена может изменяться при внесении изменений в конфигурацию модуля.
+
+							+e.info
+								+e.H5.info-title Текст про этот модуль
+								+e.P «Википе́дия»  — общедоступная многоязычная универсальная интернет-энциклопедия со свободным контентом реализованная на принципах вики. Расположена по адресу www.wikipedia.org.
+
+							+e.info
+								+e.H6.info-subtitle Спецификация:
+								+e.P Пол - ЦСП 16 мм.
+								+e.P Потолок - Деревянная отделка с покрытием эмалями и лаками на водной основе
+								+e.P Окна - Металлопластиковые, поворотно-откидные, двухкамерные 1,2х1,1м
+
+		+e.container.container
+			//begin related
+			+b.SECTION.related
+				+e.H5.title Похожие модули:
+				+e.inner
+					+b.A.module.related__module(href='#!')
+						+e.DIV.top
+							+e.title Туалетный блок «Мужской», 12 м2
+							+e.icon
+								.icon-check
+						+e.DIV.img
+							+e.IMG(src='static/img/content/module_img.png' alt='image')
+							+e.IMG.img-hidden(src='static/img/content/module_img-hidden.png' alt='image')
+						+e.DIV.price
+							+e.SPAN 369 000
+							= ' '
+							| руб
+					+b.A.module.related__module(href='#!')
+						+e.DIV.top
+							+e.title Туалетный блок «Мужской», 12 м2
+							+e.icon
+								.icon-check
+						+e.DIV.img
+							+e.IMG(src='static/img/content/module_img.png' alt='image')
+							+e.IMG.img-hidden(src='static/img/content/module_img-hidden.png' alt='image')
+						+e.DIV.price
+							+e.SPAN 369 000
+							= ' '
+							| руб
+					+b.A.module.related__module(href='#!')
+						+e.DIV.top
+							+e.title Туалетный блок «Мужской», 12 м2
+							+e.icon
+								.icon-check
+						+e.DIV.img
+							+e.IMG(src='static/img/content/module_img.png' alt='image')
+							+e.IMG.img-hidden(src='static/img/content/module_img-hidden.png' alt='image')
+						+e.DIV.price
+							+e.SPAN 369 000
+							= ' '
+							| руб

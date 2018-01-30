@@ -43,7 +43,7 @@
     .icon-arr-r
       position: relative
       right: 9px
-      
+
 .menu
   &__inner
     margin: 0 -10px
@@ -68,10 +68,11 @@
     font-size: 16px
     color: #6d6d6d
     +trs
-    
-.products
+
+.entry-articles
   padding: 20px 0 0
-.product
+
+.entry
   padding: 28px 0 20px
   border-top: 1px solid rgba(0, 0, 0, 0.3)
   +clr
@@ -109,11 +110,162 @@
     position: absolute
     bottom: 0
     left: 20px
-    
-.socials
-  &__link
+
+.side-nav
+  li
+    font-size: 0
+    &:not(:last-child)
+      margin-bottom: 8px
+    &.is-active a
+      color: $blue
+    a
+      display: inline-block
+      vertical-align: middle
+      text-transform: uppercase
+      font-size: 16px
+      +trs
+      .no-touch &:hover
+        color: darken($blue, 10)
+  &__icons
+    display: inline-block
+    vertical-align: -7px
+    width: 24px
+    height: 24px
+    margin-right: 12px
+
+//TODO: icons
+
+.product
+  &__top
+    margin-bottom: 15px
+    padding-right: 24px
+    font-size: 0
+  &__title
+    display: inline-block
+    vertical-align: middle
+    width: calc(100% - 24px)
+    padding-right: 15px
+    +f('seg-sb', 22)
   &__icon
-    width: 25px
-    height: 25px
-    &_od
-      fill: #fe9331
+    display: inline-block
+    vertical-align: -13px
+    width: 24px
+  &__inner
+    +clr
+  &__photos
+    width: 320px
+    float: left
+    padding-right: 10px
+    &-img
+      +cover-img
+      &:not(:last-child)
+        margin-bottom: 10px
+  &__data
+    float: left
+    width: calc(100% - 320px)
+    &-text
+      font-size: 14px
+      &:not(:last-child)
+        margin-bottom: 10px
+      span
+        +f('seg-sb')
+        font-size: 16px
+  &__actions
+    margin: 30px 0 20px
+    p
+      margin-top: 8px
+      padding-right: 30px
+      font-size: 12px
+  &__price
+    width: 155px
+    height: 40px
+    margin-bottom: 8px
+    border: 1px solid #c5c5c5
+    font-size: 14px
+    line-height: 36px
+    text-align: center
+    span
+      +f('seg-sb')
+      font-size: 22px
+  &__info
+    padding: 15px 0
+    border-top: 1px solid #c0c0c0
+    &-title
+      margin-bottom: 10px
+      font-size: 16px
+      +f('seg-sb')
+    &-subtitle
+      margin-bottom: 10px
+      font-size: 14px
+      +f('seg-sb')
+    p
+      &:not(:last-child)
+        margin-bottom: 5px
+    
+  &__blocks
+    font-size: 0
+    margin: 0 -5px
+  &__module
+    display: inline-block
+    width: calc(33.333333% - 10px)
+    margin: 0 5px 20px
+        
+.related
+  padding: 28px 0 0
+  border-top: 1px solid #c0c0c0
+  &__title
+    margin-bottom: 15px
+    +f('seg-sb', 16)
+    text-align: center
+  &__inner
+    font-size: 0
+    margin: 0 -5px
+  &__module
+    display: inline-block
+    width: calc(33.333333% - 10px)
+    margin: 0 5px
+    
+.module
+  padding: 14px 14px 0
+  text-align: center
+  border: 1px solid #e4e4e4
+  min-width: 310px
+  transition: .3s ease
+  
+  &:hover
+    border-color: #3dc8dc
+    background: #f2f2f2
+  &:hover .module__img-hidden
+    opacity: 1
+  &__top
+    margin-bottom: 20px
+  &__title
+    display: inline-block
+    vertical-align: middle
+    padding-right: 10px
+    width: calc(100% - 28px)
+    font-size: 14px
+    color: #222222
+  &__icon
+    display: inline-block
+    vertical-align: middle
+  &__img
+    position: relative
+    width: 254px
+    height: 101px
+    margin: 0 auto
+    &-hidden
+      +coverdiv
+      opacity: 0
+      transition: opacity .3s ease
+    img
+      display: block
+      width: 100%
+  &__price
+    margin: 20px -15px 0
+    padding: 6px 0
+    font-size: 14px
+    color: #616262
+    border-top: 1px solid #e4e4e4
+    span
+      +f('seg-sb', 22)

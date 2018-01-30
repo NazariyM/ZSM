@@ -1,7 +1,7 @@
 extends ../extend/default
 
 block variables
-	-title = 'Home page';
+	-title = 'Главная';
 
 block main
 
@@ -47,12 +47,12 @@ block main
 							+e.IMG(src='static/img/content/menu-4.jpg' alt='image')
 						+e.H5.title Cанпропускники
 
-	//begin products
-	+b.SECTION.products
+	//begin entry-articles
+	+b.SECTION.entry-articles
 		+b.container
 			-i = 0
 			while i < 3
-				+b.product
+				+b.ARTICLE.entry
 					+e.A.img(href='#!')
 						+e.IMG(src='static/img/content/notebook.jpg' alt='image')
 						+e.H5.img-title Заголовок

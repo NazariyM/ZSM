@@ -84,16 +84,6 @@
       color: #636363;
     }
 
-    .click {
-      font-size: 12px;
-      color: #636363;
-      border: 2px solid #fff;
-      padding: 5px 10px;
-      display: inline-block;
-      margin-left: 30px;
-      margin-top: 10px;
-    }
-
     .page:hover,
     .page:hover .number,
     .page:hover .name,
@@ -110,10 +100,6 @@
       transform: translateY(-50%) translateX(25%) scale(0.5);
     }
 
-    .click:after {
-      content: 'показать';
-    }
-
     iframe {
       width: 100%;
       height: 100%;
@@ -123,7 +109,10 @@
   </style>
   <script>
     var pager = [
-      ['home.html', '01', 'Home', '']
+      ['home.html', '01', 'Главная', ''],
+      ['product-page.html', '02', 'Карточка товара', ''],
+      ['catalog-page.html', '02', 'Страница каталога', ''],
+      ['catalog-page.html', '02', 'Страница каталога', '']
     ];
   </script>
   <header>
@@ -144,7 +133,7 @@
     </svg>
   </header>
   <div class="content">
-    <div class="title">Vintage test</div>
+    <div class="title">Завод санитарных модулей</div>
     <div class="pager"></div>
   </div>
   <div class="window">
@@ -157,7 +146,7 @@
         <polygon points="63.2,0 33.7,115.5 54.7,115.5 84.2,0"></polygon>
       </svg>
     </div>
-    <div class="copyright">by Vintage, All Right Reserved. 2017</div>
+    <div class="copyright">by Vintage, All Right Reserved. 2018</div>
   </footer>
   <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
   <script>
@@ -166,15 +155,9 @@
       var links = '';
       for (var i = 0, length = pager.length; i < length; i++)
       {
-        links += '<a class="page" href="' + pager[i][0] + '"><div class="number">' + pager[i][1] + '</div><div class="name">' + pager[i][2] + '</div><div class="description">' + pager[i][3] + '</div><div class="click"></div> </a>';
+        links += '<a class="page" href="' + pager[i][0] + '"><div class="number">' + pager[i][1] + '</div><div class="name">' + pager[i][2] + '</div><div class="description">' + pager[i][3] + '</div> </a>';
       }
       $('.pager').append(links);
-      $('.page .click').click(function()
-      {
-        url = $(this).parent().attr('href');
-        $('iframe').attr('src', url);
-        return false
-      });
     });
   </script>
 </html>

@@ -1,0 +1,148 @@
+extends ../extend/default
+
+block variables
+	-title = 'Страница каталога';
+	-headerClass = '_white';
+
+block main
+
+	+b.layout
+		+e.container.container
+			+e.ASIDE.side
+				+b.UL.side-nav
+					+b.LI.is-active
+						a(href='#!')
+							+b.SPAN.side-nav__icons
+								.icon-list
+							| Все
+
+					+e.LI
+						a(href='#!')
+							+e.SPAN.icons
+								.icon-check
+							| Стандартные
+					+e.LI
+						a(href='#!')
+							+e.SPAN.icons
+								.icon-electric
+							| Автономные
+					+e.LI
+						a(href='#!')
+							+e.SPAN.icons
+								.icon-shield
+							| Антивандальные
+					+e.LI
+						a(href='#!')
+							+e.SPAN.icons
+								.icon-invalid
+							| Для инвалидов (мгн)
+
+			+e.content
+				+b.SECTION.product
+					+e.top
+						+e.H3.title Туалеты
+					+e.blocks
+
+						+b.A.module.product__module(href='#!')
+							+e.DIV.top
+								+e.title Туалетный блок «Мужской», 12 м2
+								+e.icon
+									.icon-check
+							+e.DIV.img
+								+e.IMG(src='static/img/content/module_img.png' alt='image')
+								+e.IMG.img-hidden(src='static/img/content/module_img-hidden.png' alt='image')
+							+e.DIV.price
+								+e.SPAN 369 000
+								= ' '
+								| руб
+
+						+b.A.module.product__module(href='#!')
+							+e.DIV.top
+								+e.title Туалетный блок «Мужской», 12 м2
+								+e.icon
+									.icon-electric
+							+e.DIV.img
+								+e.IMG(src='static/img/content/module_img.png' alt='image')
+								+e.IMG.img-hidden(src='static/img/content/module_img-hidden.png' alt='image')
+							+e.DIV.price
+								+e.SPAN 267 000
+								= ' '
+								| руб
+
+						+b.A.module.product__module(href='#!')
+							+e.DIV.top
+								+e.title Туалетный блок «Мужской», 12 м2
+								+e.icon
+									.icon-electric
+							+e.DIV.img
+								+e.IMG(src='static/img/content/module_img.png' alt='image')
+								+e.IMG.img-hidden(src='static/img/content/module_img-hidden.png' alt='image')
+							+e.DIV.price
+								+e.SPAN 846 000
+								= ' '
+								| руб
+
+						+b.A.module.product__module(href='#!')
+							+e.DIV.top
+								+e.title Туалетный блок «Мужской», 12 м2
+								+e.icon
+									.icon-shield
+							+e.DIV.img
+								+e.IMG(src='static/img/content/module_img.png' alt='image')
+								+e.IMG.img-hidden(src='static/img/content/module_img-hidden.png' alt='image')
+							+e.DIV.price
+								+e.SPAN 157 000
+								= ' '
+								| руб
+
+						+b.A.module.product__module(href='#!')
+							+e.DIV.top
+								+e.title Туалетный блок «Мужской», 12 м2
+								+e.icon
+									.icon-electric
+							+e.DIV.img
+								+e.IMG(src='static/img/content/module_img.png' alt='image')
+								+e.IMG.img-hidden(src='static/img/content/module_img-hidden.png' alt='image')
+							+e.DIV.price
+								+e.SPAN 846 000
+								= ' '
+								| руб
+
+						+b.A.module.product__module(href='#!')
+							+e.DIV.top
+								+e.title Туалетный блок «Мужской», 12 м2
+								+e.icon
+									.icon-shield
+							+e.DIV.img
+								+e.IMG(src='static/img/content/module_img.png' alt='image')
+								+e.IMG.img-hidden(src='static/img/content/module_img-hidden.png' alt='image')
+							+e.DIV.price
+								+e.SPAN 157 000
+								= ' '
+								| руб
+
+						+b.A.module.product__module(href='#!')
+							+e.DIV.top
+								+e.title Туалетный блок «Мужской», 12 м2
+								+e.icon
+									.icon-electric
+							+e.DIV.img
+								+e.IMG(src='static/img/content/module_img.png' alt='image')
+								+e.IMG.img-hidden(src='static/img/content/module_img-hidden.png' alt='image')
+							+e.DIV.price
+								+e.SPAN 846 000
+								= ' '
+								| руб
+
+						+b.A.module.product__module(href='#!')
+							+e.DIV.top
+								+e.title Туалетный блок «Мужской», 12 м2
+								+e.icon
+									.icon-shield
+							+e.DIV.img
+								+e.IMG(src='static/img/content/module_img.png' alt='image')
+								+e.IMG.img-hidden(src='static/img/content/module_img-hidden.png' alt='image')
+							+e.DIV.price
+								+e.SPAN 157 000
+								= ' '
+								| руб
