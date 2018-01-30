@@ -1,0 +1,30 @@
+//begin footer
++b.FOOTER.footer
+	+e.container.container
+		+b.DIV.nav.footer__nav
+			ul
+				li: a(href='#!') ГЛАВНАЯ
+				li: a(href='#!') ТУАЛЕТЫ
+				li: a(href='#!') ДУШЕВЫЕ
+				li: a(href='#!') КОМБИНИРОВАННЫЕ
+				li: a(href='#!') САНПРОПУСКНИКИ
+				li: a(href='#!') О КОМПАНИИ
+
+		+e.inner
+			+b.FORM.search.footer__search(action='#!' method='POST')
+				+e.field
+					+e.INPUT.input(type='text' placeholder='Поиск по сайту' name='' required)
+					+e.BUTTON.btn(type='submit')
+						.icon-search
+
+			-socials = {classMod: 'footer__socials'}
+			include ../components/socials
+
+		+e.copyright
+			+e.P Туалетные модули и душевые из блок-контейнеров на заказ под ключ.
+			+e.P Производство в Санкт-Петербурге
+			+e.copyright-contact
+				+e.A(href='tel:+79111010000') +7 (911) 101-00-00
+			+e.copyright-contact
+				+e.A(href='mailto:info@modulwc.ru') info@modulwc.ru
+			+e.P 2009-2018

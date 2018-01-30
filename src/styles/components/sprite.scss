@@ -1,0 +1,16 @@
+.icon-check, .icon-clock, .icon-electric, .icon-invalid, .icon-list,
+.icon-mail, .icon-shield, .icon-tel, .icon-arr-l, .icon-arr-r,
+.icon-search
+{ display: inline-block; background: url('../img/icons/icons-sprite.png') no-repeat; overflow: hidden; text-indent: -9999px; text-align: left; }
+
+.icon-check { background-position: -5px -0px; width: 24px; height: 24px; }
+.icon-clock { background-position: -5px -29px; width: 24px; height: 24px; }
+.icon-electric { background-position: -5px -58px; width: 24px; height: 24px; }
+.icon-invalid { background-position: -5px -87px; width: 24px; height: 24px; }
+.icon-list { background-position: -5px -116px; width: 24px; height: 24px; }
+.icon-mail { background-position: -5px -145px; width: 24px; height: 24px; }
+.icon-shield { background-position: -5px -174px; width: 24px; height: 24px; }
+.icon-tel { background-position: -5px -203px; width: 24px; height: 24px; }
+.icon-arr-l { background-position: -5px -232px; width: 16px; height: 16px; }
+.icon-arr-r { background-position: -5px -253px; width: 16px; height: 16px; }
+.icon-search { background-position: -5px -274px; width: 16px; height: 16px; }

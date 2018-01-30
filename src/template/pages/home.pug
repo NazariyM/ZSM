@@ -1,0 +1,64 @@
+extends ../extend/default
+
+block variables
+	-title = 'Home page';
+
+block main
+
+	//begin hero
+	+b.SECTION.hero
+		.container
+			+e.slider.js-hero-slider
+				+e.slider-item
+					+e.slider-inner
+						+e.slider-img
+							+e.IMG(src='static/img/content/hero_img.png' alt='image')
+						+e.slider-text
+							+e.P Производство санитарных блок-контейнеров
+				+e.slider-item
+					+e.slider-inner
+						+e.slider-img
+							+e.IMG(src='static/img/content/hero_img.png' alt='image')
+						+e.slider-text
+							+e.P Производство санитарных блок-контейнеров
+				+e.slider-item
+					+e.slider-inner
+						+e.slider-img
+							+e.IMG(src='static/img/content/hero_img.png' alt='image')
+						+e.slider-text
+							+e.P Производство санитарных блок-контейнеров
+							
+			+b.menu
+				+e.inner
+					+e.A.item(href='#!')
+						+e.DIV.img
+							+e.IMG(src='static/img/content/menu-1.jpg' alt='image')
+						+e.H5.title Модульные туалеты
+					+e.A.item(href='#!')
+						+e.DIV.img
+							+e.IMG(src='static/img/content/menu-2.jpg' alt='image')
+						+e.H5.title Душевые
+					+e.A.item(href='#!')
+						+e.DIV.img
+							+e.IMG(src='static/img/content/menu-3.jpg' alt='image')
+						+e.H5.title Комбинированые модули
+					+e.A.item(href='#!')
+						+e.DIV.img
+							+e.IMG(src='static/img/content/menu-4.jpg' alt='image')
+						+e.H5.title Cанпропускники
+
+	//begin products
+	+b.SECTION.products
+		+b.container
+			-i = 0
+			while i < 3
+				+b.product
+					+e.A.img(href='#!')
+						+e.IMG(src='static/img/content/notebook.jpg' alt='image')
+						+e.H5.img-title Заголовок
+					+e.text
+						+e.P «Википе́дия» (англ. Wikipedia, произносится [ˌwɪkɨˈpiːdiə] или [ˌwɪkiˈpiːdiə]) — общедоступная многоязычная универсальная интернет-энциклопедия со свободным контентом[комм. 2], реализованная на принципах вики. Расположена по адресу www.wikipedia.org.
+						+e.P Владелец сайта — американская некоммерческая организация «Фонд Викимедиа», имеющая 39 региональных представительств. Название энциклопедии образовано от английских слов wiki («вики»; в свою очередь заимствовано из гавайского языка, в котором оно имеет значение «быстро») и encyclopedia («энциклопедия»).
+
+						+e.A.btn.btn(href='#!') Подробнее
+				-i++

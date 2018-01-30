@@ -1,0 +1,119 @@
+.hero
+  &__slider
+    display: none
+    overflow: hidden
+    margin-bottom: 10px
+    background: url('../img/bg/hero_bg.jpg') no-repeat 50% 50% / cover
+    &.slick-initialized
+      display: block
+    &-item
+      position: relative
+      height: 350px
+      +vertical
+      text-align: left
+    &-inner
+      display: inline-block
+      vertical-align: middle
+      padding-left: 35px
+    &-img
+      max-width: 560px
+      img
+        width: 100%
+    &-text
+      position: absolute
+      top: 50%
+      transform: translateY(-50%)
+      left: 170px
+      right: 0
+      z-index: -1
+      padding: 23px 75px 23px 0
+      background: rgba(#001b37, .4)
+      text-align: right
+      p
+        display: inline-block
+        text-align: left
+        padding-left: 14px
+        border-left: 2px solid #fff
+        max-width: 300px
+        color: $white
+        +f('seg-sb', 22)
+    .icon-arr-l
+      position: relative
+      left: 9px
+    .icon-arr-r
+      position: relative
+      right: 9px
+      
+.menu
+  &__inner
+    margin: 0 -10px
+    font-size: 0
+    text-align: center
+  &__item
+    display: inline-block
+    vertical-align: middle
+    width: calc(25% - 20px)
+    margin: 0 10px
+    .no-touch &:hover .menu__title
+      color: $blue
+  &__img
+    position: relative
+    margin-bottom: 18px
+    &::after
+      pointer-events: none
+      +coverdiv
+      background: rgba(#000, .1)
+      content: ''
+  &__title
+    font-size: 16px
+    color: #6d6d6d
+    +trs
+    
+.products
+  padding: 20px 0 0
+.product
+  padding: 28px 0 20px
+  border-top: 1px solid rgba(0, 0, 0, 0.3)
+  +clr
+  &__img
+    position: relative
+    float: left
+    width: 305px
+    overflow: hidden
+    +cover-img
+    .no-touch &:hover img
+      transform: scale(1.1)
+    img
+      transition: transform .8s ease
+    &-title
+      position: absolute
+      left: 0
+      right: 0
+      bottom: 0
+      z-index: 1
+      padding: 10px 0
+      color: #fff
+      font-size: 18px
+      text-align: center
+      background: rgba(#000, .5)
+  &__text
+    position: relative
+    float: left
+    width: calc(100% - 305px)
+    min-height: 203px
+    padding: 0 0 40px 20px
+    p
+      &:not(:first-child)
+        margin-top: 20px
+  &__btn
+    position: absolute
+    bottom: 0
+    left: 20px
+    
+.socials
+  &__link
+  &__icon
+    width: 25px
+    height: 25px
+    &_od
+      fill: #fe9331
