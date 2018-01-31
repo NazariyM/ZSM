@@ -2,9 +2,8 @@ import '../modules/dev/noTouch';
 // import Header from './Header';
 import objectFitImages from 'object-fit-images';
 import { initSliders } from './initSliders';
-// import { initAccordion } from './initAccordion';
-// import Popup from 'vintage-popup';
-// import CTabs from './c-tabs';
+import Popup from 'vintage-popup';
+import '../modules/dep/stepper';
 
 /**
  * Website's common scripts (example).
@@ -17,22 +16,33 @@ export class Common {
   static init() {
     objectFitImages();
     initSliders();
-    // initAccordion();
   }
 }
 
-/** tabs init */
-// const $tabs = $('.c-tabs');
-// $tabs.each((index, el) => {
-//   const tab = new CTabs($(el));
-//   tab.init();
-// });
+
+showFieldInput();
+
+function showFieldInput() {
+  const $btn = $('.js-show-field');
+
+  $btn.each(function () {
+    const $checkbox = $(this).closest('.check-box');
+    const $prevField = $checkbox.prev();
+
+    $(this).on('change', function (e) {
+      e.preventDefault();
+      $prevField.slideToggle();
+    });
+  });
+}
 
 /** popup init*/
-// Popup.expose($);
-// const $popup = $('[data-popup-target]');
+Popup.expose($);
+const $popup = $('[data-popup-target]');
 
-// $popup.popup();
+$popup.popup();
+
+$('.js-step-number').numStepper();
 
 /** Export initialized common scripts by default */
 export default Common.init();

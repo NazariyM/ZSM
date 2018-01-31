@@ -1,0 +1,84 @@
+extends ../extend/default
+
+block variables
+	-title = 'Страница поп-апов';
+	-headerClass = '_white';
+
+block main
+
+	+b.layout
+		+e.container.container(style='padding: 30px;')
+			+b.btn._rect.BUTTON(data-popup-target="order" type='button') Заказать
+			+b.btn._rect.BUTTON(data-popup-target="thanks" type='button') Спасибо за Ваш заказ
+
+	// begin order pop-up
+	+b.popup(data-popup-id='order', tabindex='-1', role='dialog')
+		+e.container
+			+e.close
+				svg.icon-close( version='1.1', viewbox='0 0 512 512', xml:space='preserve', xmlns='http://www.w3.org/2000/svg', xmlns:xlink='http://www.w3.org/1999/xlink')
+					path(d='M437.5,386.6L306.9,256l130.6-130.6c14.1-14.1,14.1-36.8,0-50.9c-14.1-14.1-36.8-14.1-50.9,0L256,205.1L125.4,74.5  c-14.1-14.1-36.8-14.1-50.9,0c-14.1,14.1-14.1,36.8,0,50.9L205.1,256L74.5,386.6c-14.1,14.1-14.1,36.8,0,50.9  c14.1,14.1,36.8,14.1,50.9,0L256,306.9l130.6,130.6c14.1,14.1,36.8,14.1,50.9,0C451.5,423.4,451.5,400.6,437.5,386.6z')
+
+			+e.H5.title Подтверждение заказа
+
+			+b.product
+				+e.FORM.order-form(action='#!' method='POST')
+					+e.H3.title Туалетный блок мужской, и еще пару слов, 12 м2
+
+					+e.order-row
+						+e.data._order
+							+e.P.data-text Размер:
+								span 4,00х3,00х2,59
+							+e.P.data-text Артикул:
+								span 087566
+
+						+e.order
+							+e.order-count.js-step-number.numstepper
+								+b.INPUT(type='number' name='' min='1' max='99' required autocomplete='off')
+
+							+e.order-price
+								+e.SPAN.order-price-label Сумма
+								+e.DIV.price
+									+e.SPAN 369 000
+									= ' '
+									| руб
+
+					+e.FORM.order-inner(action='#!' method='POST')
+						+e.order-col
+							+e.order-title Укажите, пожалуйста, Ваши контактные данные
+							+e.order-field
+								+e.INPUT.order-input.input(type='text' placeholder='Имя' name='' required)
+							+e.order-field
+								+e.INPUT.order-input.input(type='text' placeholder='Телефон' name='' required)
+							+e.order-field
+								+e.INPUT.order-input.input(type='text' placeholder='E-mail' name='' required)
+							+e.order-field
+								+e.INPUT.order-input.input(type='text' placeholder='Название компании' name='' required)
+
+							+b.check-box
+								+b.INPUT(class='js-show-field' id='private-check' type='checkbox' name='')
+								+e.LABEL(for='private-check')
+									+e.DIV.square
+									+e.SPAN Оставить заказ как частное лицо
+
+						+e.order-col
+							+e.order-title Поле для Ваших комментариев:
+							+e.order-message
+								+b.TEXTAREA.textarea(placeholder='Если Вас так же интересуют другие модули, напишите, пожалуйста, здесь их артикулы и необходимое количество.')
+
+							+e.BUTTON.order-btn.btn._rect(type='submit') Подтвердить заказ
+
+				+e.P.order-agree Отправляя нам свои контактные данные, вы даете согласие на обработку персональных данных
+
+
+	// begin thanks pop-up
+	+b.popup(data-popup-id='thanks', tabindex='-1', role='dialog')
+		+e.container._thanks
+			+e.line
+				+e.IMG(src='static/img/logo-sm.png' alt='image')
+			+e.inner
+				+e.text
+					+e.P Спасибо за Ваш заказ!
+
+					+e.P После обработки заявки, наш менеджер свяжется с Вами для уточнения деталей заказа.
+
+				+e.BUTTON.close.btn._rect(type='button') ОК

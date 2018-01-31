@@ -170,6 +170,9 @@
       span
         +f('seg-sb')
         font-size: 16px
+    &_order
+      width: calc(100% - 360px)
+      padding-right: 20px
   &__actions
     margin: 30px 0 20px
     p
@@ -209,7 +212,52 @@
     display: inline-block
     width: calc(33.333333% - 10px)
     margin: 0 5px 20px
-        
+    
+  &__order
+    width: 360px
+    float: left
+    +clr
+    &-form
+      padding: 0 70px 28px 0
+      +clr
+      .product__title
+        display: block
+        width: auto
+        padding: 0
+    &-row
+      margin: 17px 0 38px
+      +clr
+    &-col
+      float: left
+      width: 50%
+      &:last-of-type
+        padding-left: 50px
+    &-title
+      margin-bottom: 12px
+      color: #616262
+      font-size: 16px
+    &-field
+      &:not(:last-of-type)
+        margin-bottom: 8px
+    &-count
+      float: left
+    &-price
+      float: right
+      white-space: nowrap
+      &-label
+        display: inline-block
+        vertical-align: middle
+        margin-right: 11px
+        font-size: 14px
+      .product__price
+        display: inline-block
+        vertical-align: middle
+        margin: 0
+    &-message
+      margin-bottom: 8px
+    &-agree
+      font-size: 12px
+      
 .related
   padding: 28px 0 0
   border-top: 1px solid #c0c0c0

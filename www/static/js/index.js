@@ -41,13 +41,15 @@ var _objectFitImages2 = _interopRequireDefault(_objectFitImages);
 
 var _initSliders = __webpack_require__(7);
 
+var _vintagePopup = __webpack_require__(11);
+
+var _vintagePopup2 = _interopRequireDefault(_vintagePopup);
+
+__webpack_require__(13);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-// import { initAccordion } from './initAccordion';
-// import Popup from 'vintage-popup';
-// import CTabs from './c-tabs';
 
 /**
  * Website's common scripts (example).
@@ -65,29 +67,37 @@ var Common = exports.Common = function () {
     value: function init() {
       (0, _objectFitImages2.default)();
       (0, _initSliders.initSliders)();
-      // initAccordion();
     }
   }]);
 
   return Common;
 }();
 
-/** tabs init */
-// const $tabs = $('.c-tabs');
-// $tabs.each((index, el) => {
-//   const tab = new CTabs($(el));
-//   tab.init();
-// });
+showFieldInput();
+
+function showFieldInput() {
+  var $btn = $('.js-show-field');
+
+  $btn.each(function () {
+    var $checkbox = $(this).closest('.check-box');
+    var $prevField = $checkbox.prev();
+
+    $(this).on('change', function (e) {
+      e.preventDefault();
+      $prevField.slideToggle();
+    });
+  });
+}
 
 /** popup init*/
-// Popup.expose($);
-// const $popup = $('[data-popup-target]');
+_vintagePopup2.default.expose($);
+var $popup = $('[data-popup-target]');
 
-// $popup.popup();
+$popup.popup();
+
+$('.js-step-number').numStepper();
 
 /** Export initialized common scripts by default */
-
-
 exports.default = Common.init();
 
 /***/ }),
@@ -3760,6 +3770,497 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
 
 }));
 
+
+/***/ }),
+/* 9 */,
+/* 10 */,
+/* 11 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_RESULT__;!function(){function t(p,i){return void 0===this||Object.getPrototypeOf(this)!==t.prototype?new t(p,i):(e=$(window),o=$(document),n=$("body"),s=$("html, body"),this.options=i=$.extend(!0,{openedClass:"opened",openedBodyClass:"popup-opened",closeBtnSelector:".popup__close",targetPopupId:p.data("popup-target"),eventsNameSpace:"popup",lockScreen:!0,lockScreenEl:document.body,preventDefault:!1,closeOnBgClick:!0,closeOnEsc:!0,closeOnResize:!1,openOnClick:!0,beforeOpen:null,afterOpen:null,beforeClose:null,afterClose:null,remote:{url:p.data("popup-remote")}},i),this.$button=p,this.$popup=$('[data-popup-id="'+i.targetPopupId+'"]'),this.defaultEvents="click."+i.eventsNameSpace+" tap."+i.eventsNameSpace,this._activate(),this)}var e,o,n,s,p=/iPad|iPhone|iPod/.test(navigator.platform),i=!1,l=!1;t._getScrollbarWidth=function(){if(o.height()<=e.height())return 0;var t,n,s=document.createElement("div"),p=document.createElement("div");return s.style.visibility="hidden",s.style.width="100px",document.body.appendChild(s),t=s.offsetWidth,s.style.overflow="scroll",p.style.width="100%",s.appendChild(p),n=p.offsetWidth,s.parentNode.removeChild(s),t-n},t._lockScreen=function(e){if(!p){var o=$(e),n=parseInt(o.css("padding-right"),10)+t._getScrollbarWidth();o.css("padding-right",n+"px")}},t._unlockScreen=function(e){if(!p){var o=$(e),n=parseInt(o.css("padding-right"),10)-t._getScrollbarWidth();o.css("padding-right",n+"px")}},t.prototype._checkAndCloseAllPopups=function(){var t=n.find("[data-popup-id]"),e=t.filter("."+this.options.openedClass);if(e.length){var o=e.data("popup");this.prevPopupScrollTop=o.scrollTop,o.close(!0)}return this},t.prototype._checkAndRunCallback=function(t){return"function"==typeof t?t.call(null,this):null!==t&&console.warn("Popup: callback should be a function."),this},t.prototype._actionsWithRemoteData=function(t){if(t.replaces instanceof Array)for(var e=0,o=t.replaces.length;e<o;e++)$(t.replaces[e].what).replaceWith(t.replaces[e].data);if(t.append instanceof Array)for(e=0,o=t.append.length;e<o;e++)$(t.append[e].what).append(t.append[e].data);if(t.content instanceof Array)for(e=0,o=t.content.length;e<o;e++)$(t.content[e].what).html(t.content[e].data);t.js&&n.append(t.js),t.refresh&&window.location.reload(!0),t.redirect&&(window.location.href=t.redirect)},t.prototype._registerOpenOnClick=function(){var t=this;return this.$button.unbind(this.defaultEvents).on(this.defaultEvents,function(e){if(t.options.preventDefault&&e.preventDefault(),t._checkAndCloseAllPopups(),t.options.remote.url){var o=t.options.remote;return $.ajax({url:o.url,method:"get",cache:"false",dataType:"json",data:o.data,beforeSend:o.onBeforeSend,success:function(e){t.open(e)},complete:o.onComplete,error:o.onError}),this}t.open(!1)}),this},t.prototype._registerCloseOnResize=function(){var o=this,s="resize."+this.options.eventsNameSpace;return i||(e.on(s,function(){n.hasClass(o.options.openedBodyClass)&&t.closeAllPopups(o.options.openedClass)}),i=!0),this},t.prototype._registerCloseOnEsc=function(){var e=this,s="keyup."+this.options.eventsNameSpace;return l||(o.on(s,function(o){27==o.keyCode&&n.hasClass(e.options.openedBodyClass)&&t.closeAllPopups(e.options.openedClass)}),l=!0),this},t.prototype._registerCloseOnBgClick=function(){var t=this;return t.$popup.on(this.defaultEvents,function(e){e.target===t.$popup.get(0)&&t.close()}),this},t.prototype._registerCloseBtnClick=function(){var t=this,e=t.$popup.find(this.options.closeBtnSelector);return e&&e.unbind&&e.on?(e.unbind(this.defaultEvents).on(this.defaultEvents,function(){t.close()}),this):(console.warn("Close button was not found"),this)},t.prototype._activate=function(){return this.$popup.data("popup")?(this.$popup.data("popup",this),this.options.openOnClick&&this._registerOpenOnClick(),this):(this._registerCloseBtnClick(),this.$popup.data("popup",this),this.options.closeOnEsc&&this._registerCloseOnEsc(),this.options.closeOnBgClick&&this._registerCloseOnBgClick(),this.options.closeOnResize&&this._registerCloseOnResize(),this.options.openOnClick&&this._registerOpenOnClick(),this)},t.prototype.open=function(o){return o&&(this._actionsWithRemoteData(o),this._registerCloseBtnClick()),this._checkAndRunCallback(this.options.beforeOpen),this.scrollTop=this.prevPopupScrollTop||e.scrollTop(),this.$popup.data("popupScrollTop",this.scrollTop),this.options.lockScreen&&t._lockScreen(this.options.lockScreenEl),n.css("top",-this.scrollTop).addClass(this.options.openedBodyClass),this.$popup.addClass(this.options.openedClass),this._checkAndRunCallback(this.options.afterOpen),this},t.prototype.close=function(e){return this._checkAndRunCallback(this.options.beforeClose),e||(this.options.lockScreen&&t._unlockScreen(this.options.lockScreenEl),n.css({top:""}).removeClass(this.options.openedBodyClass),s.scrollTop(this.$popup.data("popupScrollTop")),this.prevScrollTop&&(this.prevScrollTop=!1)),this.$popup.removeClass(this.options.openedClass),this._checkAndRunCallback(this.options.afterClose),this},t.prototype.kill=function(){this.$button.unbind(this.defaultEvents),this.$popup.data("popup",null)},t.VERSION="0.1.75",t.kill=function(t){$(t).data("popup").kill()},t.closeAllPopups=function(t){t=t||"opened";var e=n.find("[data-popup-id]"),o=e.filter("."+t);if(o.length){var s=o.data("popup");s.close.call(s,!1)}};var r=t.expose=function(e){$=e,$.fn.popup=function(e){var o=[];return this.each(function(){var n=$(this);o.push(new t(n,e))}),1===o.length?o[0]:o}};"object"==typeof module&&"object"==typeof module.exports?module.exports=t: true?!(__WEBPACK_AMD_DEFINE_RESULT__ = (function(){return t}).call(exports, __webpack_require__, exports, module),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__)):window.Popup=t,r($)}();
+
+/***/ }),
+/* 12 */,
+/* 13 */
+/***/ (function(module, exports) {
+
+/**
+ * Numeric stepper
+ * @version 1.3.0
+ * @namespace numStepper
+ *
+ * @param {Object} [options] - Custom options object
+ * @param {Number} [options.steps=1] - Number of steps to increment/decrement input value
+ * @param {Number} [options.minValue=1] - Minimum input value
+ * @param {Number} [options.maxValue=null] - Maximum input value
+ * @param {Boolean} [options.noFloatingPoint=true] - No floating point numbers
+ * @param {String} [options.theme=default] -
+ * @param {String} [options.inputWidth=null] -
+ * @param {Object} [options.classes] - Component HTML class names object
+ * @param {String} [options.classes.root='num-spinner'] - Component block
+ * @param {String} [options.classes.input='num-spinner__input'] - Component input element
+ * @param {String} [options.classes.input='num-spinner__unit'] - Component unit element
+ * @param {String} [options.classes.btn='num-spinner__btn'] - Component button element
+ * @param {String} [options.classes.btnInc='num-spinner__btn--increment'] - Component button element increment modification
+ * @param {String} [options.classes.btnDec='num-spinner__btn--decrement'] - Component button element decrement modification
+ *
+ * @example /// Init without options
+ * $( '.js-someclass' ).numStepper();
+ * @example /// Init with options
+ * $( '.js-differentclass' ).numStepper({
+ *   steps: 10,
+ *   minValue: 0,
+ *   maxValue: 100
+ * });
+ */
+(function( $, window, document, undefined ) {
+  /// Create the defaults once
+  var pluginName = 'numStepper';
+  var defaults = {
+    steps: 1,
+    minValue: 1,
+    maxValue: null,
+    noFloatingPoint: true,
+    unit: null,
+    theme: 'default',
+    inputWidth: null,
+    classes: {
+      root: 'numstepper',
+      input: 'numstepper__input',
+      inputUnitMod: 'numstepper__input--unit',
+      unit: 'numstepper__unit',
+      btn: 'numstepper__btn',
+      btnInc: 'numstepper__btn--increment',
+      btnDec: 'numstepper__btn--decrement'
+    }
+  };
+
+  /// The actual plugin constructor
+  function Plugin( element, options ) {
+    this.element = element;
+    this.options = $.extend( {}, defaults, options, $(this.element).data() );
+
+    this._defaults = defaults;
+    this._name = pluginName;
+
+    this._init();
+  }
+
+  Plugin.prototype = {
+    /**
+     * Initialization
+     * @function
+     * @public
+     * @memberof numStepper
+     */
+    _init: function() {
+      this._config();
+      this._bindEvents();
+    },
+
+    /**
+     * Configures all internal variables, creates additional DOM elements, et cetera
+     * @function
+     * @private
+     * @memberof numStepper
+     */
+    _config: function() {
+      var attrMin, attrMax;
+      var op = this.options;
+      var cl = op.classes;
+
+      this.isFirstRun = true;
+      this.hasUnit = op.unit ? true : false;
+
+      this.$root = $(this.element);
+      this.$input = this.$root.find( 'input' );
+
+      this.$root.addClass( cl.root + ' ' + cl.root + '--' + op.theme );
+      this.$input.addClass( cl.input );
+
+      this.$btnDecrement = $( '<button class="' + cl.btn + " " + cl.btnDec + '">&mdash;</button>' );
+      this.$btnIncrement = $( '<button class="' + cl.btn + " " + cl.btnInc + '">+</button>' );
+
+      this.$root.prepend( this.$btnDecrement );
+      this.$root.append( this.$btnIncrement );
+
+      this.$input.attr( 'type', 'number' );
+      this.$input.attr( 'autocomplete', 'off' );
+
+      attrMin = this.$input.attr( 'min' );
+      attrMax = this.$input.attr( 'max' );
+
+      if ( attrMin ) {
+        if ( op.noFloatingPoint ) {
+          op.minValue = parseInt( attrMin, 10 );
+        } else {
+          op.minValue = parseFloat( attrMin.replace( ',', '.' ) );
+        }
+      }
+
+      if ( attrMax ) {
+        if ( op.noFloatingPoint ) {
+          op.maxValue = parseInt( attrMax, 10 );
+        } else {
+          op.maxValue = parseFloat( attrMax.replace( ',', '.' ) );
+        }
+      }
+
+      this._setInputAttributes();
+
+      if ( op.inputWidth ) {
+        if ( typeof op.inputWidth === 'number' ) {
+          op.inputWidth += 'rem';
+        }
+        this.$input.css({ 'width' : op.inputWidth });
+      }
+
+      if ( this.hasUnit ) {
+        this.$input.addClass( cl.inputUnitMod );
+        this.$unit = $( '<div class="' + cl.unit + '">&nbsp;' + op.unit + '</div>' );
+        this.$unit.insertAfter( this.$input );
+        var unitWidth = this.$unit.outerWidth();
+        this.$input.css({
+          'text-align' : 'right',
+          'width' : this.$input.outerWidth() + unitWidth + 'px',
+          'padding-right' : unitWidth + 'px'
+        });
+        this.$unit.css({ 'margin-left' : unitWidth * -1 + 'px'});
+      }
+
+      if ( op.noFloatingPoint ) {
+        /// Allow: Backspace (8), Delete (46), Tab (9), Escape (27), Enter (13)
+        this.keyCodes = [ 8, 46, 9, 27, 13 ];
+      } else {
+        /// Allow: Backspace (8), Delete (46), Tab (9), Escape (27), Enter (13), Decimal Point (110),
+        /// Period (190), Comma (188), Dash (189), Subtract (109)
+        this.keyCodes = [ 8, 46, 9, 27, 13, 110, 190, 188, 189, 109 ];
+      }
+
+      this.value = null;
+      this.valueOld = null;
+
+      this._getValue();
+
+      if ( !this.value ) {
+        if ( op.minValue ) {
+          this.value = op.minValue;
+        } else {
+          this.value = 0;
+        }
+        this.valueOld = this.value;
+      }
+
+      this._setValue();
+    },
+
+    /**
+     * Binds all event listeners
+     * @function
+     * @private
+     * @memberof numStepper
+     */
+    _bindEvents: function() {
+      var self = this;
+      var op = this.options;
+      var cl = op.classes;
+
+      this.$root.off(
+        'click change keydown'
+      ).on( 'click', '.'+ cl.btnDec, function(event) {
+        event.preventDefault();
+        self._setValue( 'dec' );
+      }).on( 'click', '.'+ cl.btnInc, function(event) {
+        event.preventDefault();
+        self._setValue( 'inc' );
+      }).on( 'change keydown', '.'+ cl.input, function(event) {
+        switch ( event.type ) {
+          case 'change':
+            self._getValue();
+            self._setValue( 'auto' );
+            break;
+          case 'keydown':
+            /// Allow: Up (38), Add (107)
+            if ( event.which == 38 || event.which == 107 ) {
+              event.preventDefault();
+              self._setValue( 'inc' );
+              return;
+            }
+            /// Allow: Down (40), Subtract (109)
+            if ( event.which == 40 || event.which == 109 ) {
+              event.preventDefault();
+              self._setValue( 'dec' );
+              return;
+            }
+            /// Allow
+            if (
+              $.inArray( event.which, self.keyCodes ) !== -1 ||
+              /// Allow: Ctrl/cmd + A
+              ( event.which == 65 && ( event.ctrlKey === true || event.metaKey === true ) ) ||
+              /// Allow: Ctrl/cmd + C
+              ( event.which == 67 && ( event.ctrlKey === true || event.metaKey === true ) ) ||
+              /// Allow: Ctrl/cmd + X
+              ( event.which == 88 && ( event.ctrlKey === true || event.metaKey === true ) ) ||
+              /// Allow: End (35), Home (36), Left (37), Right (39)
+              ( event.which >= 35 && event.which <= 39 )
+            ) {
+              /// Let it happen, don't do anything
+              return;
+            }
+
+            /// Ensure that it is a number and stop the keypress
+            if (
+              ( event.shiftKey || ( event.which < 48 || event.which > 57 ) ) &&
+              ( event.which < 96 || event.which > 105)
+            ) {
+              event.preventDefault();
+            }
+            break;
+          default:
+            return;
+        }
+      });
+
+      if ( this.hasUnit ) {
+        this.$root.on( 'click', '.'+ cl.unit, function(event) {
+          event.preventDefault();
+          event.stopPropagation();
+          self.$input.focus();
+        });
+      }
+    },
+
+    /**
+     * xxxxxx
+     * @function
+     * @private
+     * @memberof numStepper
+     */
+    _setInputAttributes: function() {
+      var op = this.options;
+
+      if ( typeof op.minValue === 'number' ) { this.$input.attr( 'min', op.minValue ); }
+      if ( typeof op.maxValue === 'number' ) { this.$input.attr( 'max', op.maxValue ); }
+    },
+
+    /**
+     * Gets the input element value
+     * @function
+     * @private
+     * @memberof numStepper
+     */
+    _getValue: function() {
+      var op = this.options
+
+      this.valueOld = this.value;
+
+      if ( op.noFloatingPoint ) {
+        this.value = parseInt( this.$input.val(), 10 );
+      } else {
+        this.value = parseFloat( this.$input.val().replace( ',', '.' ) );
+      }
+
+      if ( isNaN( this.value ) ) {
+        this.value = this.valueOld;
+      }
+    },
+
+    /**
+     * Increases or decreases the value and sets the new value
+     * @function
+     * @private
+     * @memberof numStepper
+     *
+     * @param {String} mode - [ dec | inc | auto ]
+     * @fires numstep.change
+     */
+    _setValue: function( mode ) {
+      var op = this.options;
+
+      switch ( mode ) {
+        case 'dec':
+          this.valueOld = this.value;
+          this.value -= op.steps;
+          break;
+        case 'inc':
+          this.valueOld = this.value;
+          this.value += op.steps;
+          break;
+        case 'auto':
+        default:
+          if ( this.value < this.valueOld ) {
+            mode = 'dec';
+          } else if ( this.value > this.valueOld ) {
+            mode = 'inc';
+          } else {
+            mode = null;
+          }
+      }
+
+      this._checkMinMax();
+
+      if ( op.noFloatingPoint ) {
+        this.$input.val( this.value );
+      } else {
+        this.$input.val( this.value.toLocaleString() );
+      }
+
+      if ( this.isFirstRun || this.value !== this.valueOld ) {
+        this.isFirstRun = false;
+
+        /**
+         * Triggers numeric spinner change event on root element.
+         * The mode (inc/dec), value and valueOld are passed to the event handling function as argument after the event object.
+         * @event numstep.change
+         *
+         * @returns {Object} eventData
+         * @returns {String} mode
+         * @returns {Number} value
+         * @returns {Number} valueOld
+         */
+        this.$root.trigger( 'numstep.change', [ mode, this.value, this.valueOld ] );
+      }
+    },
+
+    /**
+     * Checks for min/max values and disables/enables buttons
+     * @function
+     * @private
+     * @memberof numStepper
+     */
+    _checkMinMax: function() {
+      var op = this.options;
+
+      /// Alle Buttons aktivieren
+      this.$btnDecrement.attr( 'disabled', false );
+      this.$btnIncrement.attr( 'disabled', false );
+
+      /// Wenn min gesetzt und value kleiner gleich min
+      if ( op.minValue && this.value <= op.minValue ) {
+        this.value = op.minValue;
+        this.$btnDecrement.attr( 'disabled', true );
+      }
+
+      /// Wenn max gesetzt und value groesser gleich max
+      if ( op.maxValue && this.value >= op.maxValue ) {
+        this.value = op.maxValue;
+        this.$btnIncrement.attr( 'disabled', true );
+      }
+    },
+
+    /**
+     * Sets any option by its name after initialization
+     * @function
+     * @public
+     * @memberof numStepper
+     *
+     * @param {String} option - Option name
+     * @param {String} option - Option value
+     * @param {Boolean} [trigger] - Trigger numstep.change event on root element
+     *
+     * @example $(element).numericSpinner( 'setOption', 'maxValue', 15, true );
+     */
+    setOption: function( option, value, trigger ) {
+      this.options[option] = value;
+
+      this._setInputAttributes();
+
+      if ( trigger ) {
+        this.$input.trigger( 'change' );
+      }
+    },
+
+    /**
+     * Get any option by its name
+     * @function
+     * @private
+     * @memberof numStepper
+     *
+     * @param {String} option
+     * @returns {*}
+     *
+     * @example $(element).numericSpinner( 'getOption', 'maxValue' );
+     */
+    /*
+    getOption: function( option ) {
+      return this.options[option];
+    },
+    */
+
+    /**
+     * Destroys the plugin
+     * @function
+     * @public
+     * @memberof numStepper
+     *
+     * @example $(element).numericSpinner( 'destroy' );
+     */
+    destroy: function() {
+      this.$input.off();
+      this.$btnDecrement.remove();
+      this.$btnIncrement.remove();
+      this.$root.removeClass( this.options.classes.root );
+      this.$input.removeClass( this.options.classes.input );
+      $.removeData( this.element );
+    }
+  };
+
+  /**
+   * Logs console errors
+   * @function
+   * @private
+   * @memberof numericSpinner
+   */
+  var _logError = function( message ) {
+    if ( window.console ) {
+      window.console.error( message );
+    }
+  };
+
+  $.fn[pluginName] = function( options ) {
+    if ( typeof options === 'string' ) {
+      var args = Array.prototype.slice.call( arguments, 1 );
+
+      this.each(function() {
+        var instance = $.data( this, 'plugin_' + pluginName );
+
+        if ( !instance ) {
+          _logError(
+            'Cannot call methods on '+ pluginName +' prior to initialization;' +
+            'attempted to call method "'+ options +'"'
+          );
+          return;
+        }
+
+        if ( !$.isFunction( instance[ options ] ) || options.charAt(0) === "_" ) {
+          _logError( 'No such method "'+ options +'" for '+ pluginName +' instance' );
+          return;
+        }
+
+        instance[ options ].apply( instance, args );
+      });
+    } else {
+      this.each( function() {
+        if ( !$.data( this, 'plugin_' + pluginName ) ) {
+          $.data( this, 'plugin_' + pluginName, new Plugin( this, options ) );
+        }
+        /*
+        var instance = $.data( this, 'plugin_' + pluginName );
+
+        if ( instance ) {
+          instance.destroy();
+          instance._init();
+        } else {
+          $.data( this, 'plugin_' + pluginName, new Plugin( this, options ) );
+        }
+        */
+      });
+    }
+
+    return this;
+  };
+})( jQuery, window, document );
 
 /***/ })
 ],[2]);
