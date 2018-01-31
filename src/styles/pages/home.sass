@@ -11,32 +11,65 @@
       height: 350px
       +vertical
       text-align: left
+      +sm
+        height: 280px
+      +xs
+        height: auto
     &-inner
       display: inline-block
       vertical-align: middle
+      width: percentage(560 / 950)
       padding-left: 35px
+      +xs
+        padding: 15px 10px 10px
+        width: 100%
     &-img
-      max-width: 560px
       img
         width: 100%
     &-text
       position: absolute
       top: 50%
-      transform: translateY(-50%)
+      transform: translateY(-68%)
       left: 170px
       right: 0
       z-index: -1
       padding: 23px 75px 23px 0
       background: rgba(#001b37, .4)
       text-align: right
-      p
-        display: inline-block
-        text-align: left
-        padding-left: 14px
-        border-left: 2px solid #fff
-        max-width: 300px
-        color: $white
-        +f('seg-sb', 22)
+      +sm
+        padding: 23px 28px 23px 0
+      +xs
+        position: static
+        padding: 10px
+        transform: none
+        
+    &-descr
+      position: relative
+      display: inline-block
+      text-align: left
+      padding-left: 14px
+      max-width: 300px
+      color: $white
+      +f('seg-sb', 22)
+      +sm
+        max-width: 280px
+        font-size: 19px
+      +xs
+        padding: 0
+        max-width: 100%
+        text-align: center
+        width: 100%
+      &::after
+        position: absolute
+        top: 50%
+        transform: translateY(-50%)
+        left: 0
+        width: 2px
+        height: 65px
+        background: #fff
+        content: ''
+        +xs
+          display: none
     .icon-arr-l
       position: relative
       left: 9px
@@ -49,39 +82,59 @@
     margin: 0 -10px
     font-size: 0
     text-align: center
+    +sm
+      margin: 0 -5px
   &__item
     display: inline-block
-    vertical-align: middle
+    vertical-align: top
     width: calc(25% - 20px)
     margin: 0 10px
+    +sm
+      width: calc(25% - 10px)
+      margin: 0 5px
+    +xs
+      width: calc(50% - 10px)
+      margin: 0 5px 10px
     .no-touch &:hover .menu__title
       color: $blue
   &__img
     position: relative
     margin-bottom: 18px
+    +xs
+      margin-bottom: 10px
     &::after
       pointer-events: none
       +coverdiv
       background: rgba(#000, .1)
       content: ''
+      +xs
+        display: none
   &__title
     font-size: 16px
     color: #6d6d6d
     +trs
 
 .entry-articles
-  padding: 20px 0 0
+  padding: 20px 0 60px
+  +xs
+    padding: 20px 0
 
 .entry
-  padding: 28px 0 20px
+  padding: 28px 6px 20px
   border-top: 1px solid rgba(0, 0, 0, 0.3)
   +clr
   &__img
     position: relative
+    display: block
     float: left
     width: 305px
     overflow: hidden
     +cover-img
+    +xs
+      float: none
+      max-width: 305px
+      width: auto
+      margin: 0 auto 15px
     .no-touch &:hover img
       transform: scale(1.1)
     img
@@ -103,6 +156,10 @@
     width: calc(100% - 305px)
     min-height: 203px
     padding: 0 0 40px 20px
+    +xs
+      float: none
+      width: auto
+      padding: 0 0 40px
     p
       &:not(:first-child)
         margin-top: 20px
@@ -110,12 +167,19 @@
     position: absolute
     bottom: 0
     left: 20px
+    +xs
+      left: 50%
+      transform: translateX(-50%)
 
 .side-nav
   li
     font-size: 0
     &:not(:last-child)
-      margin-bottom: 8px
+      margin-bottom: 12px
+    &.is-active .icon
+      opacity: 0
+    &.is-active .icon-active
+      opacity: 1
     &.is-active a
       color: $blue
     a
@@ -125,27 +189,38 @@
       font-size: 16px
       +trs
       .no-touch &:hover
-        color: darken($blue, 10)
+        color: $blue
   &__icons
+    position: relative
     display: inline-block
     vertical-align: -7px
     width: 24px
     height: 24px
     margin-right: 12px
-
-//TODO: icons
-
+    .icon-active
+      opacity: 0
+      position: absolute
+      top: 0
+      left: 0
+      
 .product
   &__top
     margin-bottom: 15px
     padding-right: 24px
     font-size: 0
+    +sm
+      margin-right: -35px
+    +xs
+      margin-right: 0
+      padding-right: 0
   &__title
     display: inline-block
     vertical-align: middle
     width: calc(100% - 24px)
     padding-right: 15px
     +f('seg-sb', 22)
+    +xs
+      font-size: 18px
   &__icon
     display: inline-block
     vertical-align: -13px
@@ -156,6 +231,11 @@
     width: 320px
     float: left
     padding-right: 10px
+    +xs
+      float: none
+      width: auto
+      max-width: 310px
+      margin: 0 auto 20px
     &-img
       +cover-img
       &:not(:last-child)
@@ -163,8 +243,13 @@
   &__data
     float: left
     width: calc(100% - 320px)
+    +xs
+      float: none
+      width: auto
     &-text
       font-size: 14px
+      +xs
+        text-align: center
       &:not(:last-child)
         margin-bottom: 10px
       span
@@ -173,12 +258,19 @@
     &_order
       width: calc(100% - 360px)
       padding-right: 20px
+      +xs
+        width: auto
+        padding-right: 0
   &__actions
     margin: 30px 0 20px
+    +xs
+      text-align: center
     p
       margin-top: 8px
       padding-right: 30px
       font-size: 12px
+      +xs
+        padding-right: 0
   &__price
     width: 155px
     height: 40px
@@ -187,6 +279,8 @@
     font-size: 14px
     line-height: 36px
     text-align: center
+    +xs
+      margin: 0 auto 8px
     span
       +f('seg-sb')
       font-size: 22px
@@ -208,6 +302,9 @@
   &__blocks
     font-size: 0
     margin: 0 -5px
+    text-align: center
+    +xs
+      margin: 0 -10px
   &__module
     display: inline-block
     width: calc(33.333333% - 10px)
@@ -217,21 +314,41 @@
     width: 360px
     float: left
     +clr
+    +xs
+      width: auto
+      float: none
+      margin: 20px auto 0
     &-form
       padding: 0 70px 28px 0
       +clr
+      +sm
+        padding: 0 0 25px 0
       .product__title
         display: block
         width: auto
         padding: 0
+        +xs
+          text-align: center
     &-row
       margin: 17px 0 38px
       +clr
+      +xs
+        margin: 15px 0 20px
     &-col
       float: left
       width: 50%
+      +xs
+        float: none
+        width: auto
+        text-align: center
+        &:not(:last-child)
+          padding-bottom: 20px
       &:last-of-type
         padding-left: 50px
+        +sm
+          padding-left: 20px
+        +xs
+          padding-left: 0
     &-title
       margin-bottom: 12px
       color: #616262
@@ -241,9 +358,16 @@
         margin-bottom: 8px
     &-count
       float: left
+      +r(424)
+        float: none
+        width: 120px
+        margin: 0 auto 20px
     &-price
       float: right
       white-space: nowrap
+      +xs
+        float: none
+        text-align: center
       &-label
         display: inline-block
         vertical-align: middle
@@ -257,6 +381,8 @@
       margin-bottom: 8px
     &-agree
       font-size: 12px
+      +xs
+        text-align: center
       
 .related
   padding: 28px 0 0
@@ -268,11 +394,16 @@
   &__inner
     font-size: 0
     margin: 0 -5px
+    text-align: center
+    +xs
+      margin: 0 -10px
   &__module
     display: inline-block
     width: calc(33.333333% - 10px)
     margin: 0 5px
-    
+    +sm
+      margin: 0 5px 10px
+
 .module
   padding: 14px 14px 0
   text-align: center

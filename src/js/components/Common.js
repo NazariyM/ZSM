@@ -1,5 +1,5 @@
 import '../modules/dev/noTouch';
-// import Header from './Header';
+import { initMobNav } from './Header';
 import objectFitImages from 'object-fit-images';
 import { initSliders } from './initSliders';
 import Popup from 'vintage-popup';
@@ -16,6 +16,7 @@ export class Common {
   static init() {
     objectFitImages();
     initSliders();
+    initMobNav();
   }
 }
 

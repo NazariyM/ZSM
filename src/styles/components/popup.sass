@@ -62,13 +62,18 @@
 		will-change: transform, opacity
 		border: 1px solid #c5c5c5
 		text-align: left
+		+sm
+			max-width: 700px
+		+xs
+			padding: 20px 15px
 		&_thanks
 			max-width: 700px
 			padding: 0
+			+xs
+				padding: 0
 	&__title
 		margin: 0 -30px 22px
 		padding: 0 50px 14px
-		color: #231f20
 		+f('seg-sb', 22)
 		text-align: center
 		border-bottom: 1px solid #c5c5c5
@@ -78,10 +83,14 @@
 		padding: 10px 0
 	&__inner
 		padding: 50px 30px 30px
+		+xs
+			padding: 20px
 	&__text
 		max-width: 370px
 		margin: 0 auto 40px
 		text-align: center
+		+xs
+			margin: 0 auto 20px
 		p
 			color: #696969
 			font-size: 16px

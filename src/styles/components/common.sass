@@ -8,18 +8,13 @@ body
   line-height: 1.2
   color: #616262
   background: #f8f8f8
-//&.is-locked
-//	position: fixed
-//	top: 0
-//	left: 0
-//	right: 0
-//	height: 0
-//	overflow: hidden
 
 .out
   overflow: hidden
   min-height: 100%
   margin-bottom: -234px
+  +xs
+    margin-bottom: 0
   &::after
     display: block
     content: ''
@@ -27,6 +22,8 @@ body
 .footer,
 .out::after
   height: 234px
+  +xs
+    height: auto
 
 .container
   max-width: 980px
@@ -36,13 +33,16 @@ body
     padding: 0 10px
 
 .layout
+  padding: 16px 0 0
+  +xs
+    padding: 0
   &__container
     position: relative
     padding-bottom: 50px
     +clr
     &::before
       position: absolute
-      top: 0
+      top: -30px
       left: 15px
       right: 15px
       bottom: 0
@@ -50,13 +50,26 @@ body
       content: ''
       z-index: -1000
       pointer-events: none
+      +sm
+        display: none
   &__side
     float: left
     width: 320px
-    padding: 0 30px 0 34px
+    padding: 5px 30px 0 34px
+    +sm
+      float: none
+      width: auto
+      margin-bottom: 20px
+      padding: 5px 20px
   &__content
     float: left
     width: calc(100% - 320px)
+    +sm
+      float: none
+      width: auto
+      padding: 0 20px
+    +xs
+      padding: 0
 
 // buttons
 .btn
@@ -85,6 +98,7 @@ body
 
 .check-box
   position: relative
+  display: inline-block
   label
     display: block
     cursor: pointer
@@ -150,23 +164,20 @@ body
 .slider-btn
   position: absolute
   top: 50%
-  margin-top: -28px
+  margin-top: -47px
   font-size: 0
   z-index: 1
   background: $white
   width: 56px
   height: 56px
   border-radius: 50%
-  .no-touch &:hover .icon
-    fill: $white
-  .no-touch &:active .icon
-    transform: scale(.8)
+  +trs
+  .no-touch &:hover
+    background: $blue
   .icon
     font-size: 75px
     fill: rgba($white, .7)
     +trs
-    +lg
-      font-size: 55px
   &_prev
     left: -28px
   &_next
@@ -180,6 +191,8 @@ body
   z-index: 1
   text-align: center
   font-size: 0
+  +xs
+    display: none!important
   li
     display: inline-block
     width: 8px

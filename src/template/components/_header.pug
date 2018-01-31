@@ -6,6 +6,9 @@
 				+e.IMG(src='static/img/logo.png' alt='image')
 				+e.P Завод санитарных модулей
 
+			+e.BUTTON.hamburger.js-nav-btn(type='button').hamburger-menu
+				.bar
+
 			+b.contact-line.header__contact-line
 				+e.item
 					+e.item-icon
@@ -28,7 +31,7 @@
 						.icon-mail
 					+e.A.item-text(href='mailto:info@zsmod.ru') info@zsmod.ru
 
-		+b.NAV.nav.header__nav
+		+b.NAV.nav.header__nav.js-nav
 			ul
 				li.is-active: a(href='#!') ГЛАВНАЯ
 				li: a(href='#!') ТУАЛЕТЫ
